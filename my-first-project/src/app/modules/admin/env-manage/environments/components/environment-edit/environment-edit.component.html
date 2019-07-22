@@ -1,0 +1,63 @@
+<p></p>
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="environmentForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="col-md-4">Environment ID</label>
+        <input type="text" class="form-control" disabled
+          formControlName="id" #id />
+      </div>
+      <div *ngIf="environmentForm.controls['id'].invalid && (environmentForm.controls['id'].dirty || environmentForm.controls['id'].touched)" class="alert alert-danger">
+        <div *ngIf="environmentForm.controls['id'].errors.required">
+          Environment ID is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Environment Name</label>
+        <input type="text" class="form-control" 
+          formControlName="name" #name />
+      </div>
+      <div *ngIf="environmentForm.controls['name'].invalid && (environmentForm.controls['name'].dirty || environmentForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="environmentForm.controls['name'].errors.required">
+          Environment name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Environment Description </label>
+        <textarea class="form-control" rows = 7 cols = "5" 
+          formControlName="description" #description ></textarea>
+      </div>
+      <div *ngIf="environmentForm.controls['description'].invalid && (environmentForm.controls['description'].dirty || environmentForm.controls['description'].touched)" class="alert alert-danger">
+        <div *ngIf="environmentForm.controls['description'].errors.required">
+          Environment description is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Environment Type</label>
+        <input type="text" class="form-control"
+          formControlName="type" #type />
+      </div>
+      <div *ngIf="environmentForm.controls['type'].invalid && (environmentForm.controls['type'].dirty || environmentForm.controls['type'].touched)" class="alert alert-danger">
+        <div *ngIf="environmentForm.controls['type'].errors.required">
+          Environment type is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Environment Status</label>
+        <input type="text" class="form-control"
+          formControlName="status" #status />
+      </div>
+      <div *ngIf="environmentForm.controls['status'].invalid && (environmentForm.controls['status'].dirty || environmentForm.controls['status'].touched)" class="alert alert-danger">
+        <div *ngIf="environmentForm.controls['status'].errors.required">
+          Environment status is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary"
+            [disabled]="environmentForm.invalid" >
+          Update Product
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
